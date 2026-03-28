@@ -5,3 +5,5 @@ urlpatterns = [
     path('', include('demoapp.urls')), 
     path('admin/', admin.site.urls), 
 ] 
+
+handler404 = 'demoproject.views.handler404'
