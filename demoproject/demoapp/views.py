@@ -1,8 +1,12 @@
 from django.http import HttpResponse
+from django.shortcuts import render
+from .forms import ApplicationForm
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello world. This is the index view of the django app!")
+    form = ApplicationForm()
+    context = {'form:': form}
+    return render(request, 'form.html', context)
 
 def dishes(request, dish):
     items = {
@@ -14,3 +18,4 @@ def dishes(request, dish):
     description = items[dish]
 
     return HttpResponse(f"<h2> {dish} </h2>" + description)
+
