@@ -14,3 +14,8 @@ class Menu(models.Model):
     def __str__(self):
         return self.name + " : " + str(self.category_id)
     
+class ApplicationForm(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=251)
+    drinks = (('coffee', 'coffee'),('tea', 'tea'),('chantea', 'chantea'))
+    drinksChoice = models.CharField(max_length=20, choices=drinks)

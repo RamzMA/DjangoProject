@@ -7,7 +7,7 @@
 </head>
 <body>
   <h1>Application Form</h1>
-  <form method="post">
+  <form method="post" action="">
     {% csrf_token %}
     {{ form.as_table }}
     <button type="submit">Submit</button>

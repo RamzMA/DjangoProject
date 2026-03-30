@@ -1,12 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .forms import ApplicationForm
+from .forms import AppForm
 
 # Create your views here.
 def index(request):
-    form = ApplicationForm()
-    context = {'form:': form}
-    return render(request, 'form.html', context)
+    return HttpResponse("This is the HomePage")
 
 def dishes(request, dish):
     items = {
@@ -19,3 +17,11 @@ def dishes(request, dish):
 
     return HttpResponse(f"<h2> {dish} </h2>" + description)
 
+def ApForm(request):
+    form = AppForm
+    if request.method == 'POST':
+        form = AppForm(request.POST)
+        if form.is_valid:
+            form.save()
+    context = {'form': form}
+    return render(request, 'form.html', context)
