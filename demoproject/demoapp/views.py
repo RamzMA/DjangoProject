@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import AppForm
 
 # Create your views here.
@@ -18,10 +18,11 @@ def dishes(request, dish):
     return HttpResponse(f"<h2> {dish} </h2>" + description)
 
 def ApForm(request):
-    form = AppForm
+    form = AppForm()
     if request.method == 'POST':
         form = AppForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             form.save()
+            return redirect("Successful")
     context = {'form': form}
     return render(request, 'form.html', context)
