@@ -1,9 +1,10 @@
 from django.urls import path 
 from . import views 
 
-urlpatterns = [ 
+urlpatterns = [
     path('', views.index, name='index'), 
     path('dishes/<str:dish>', views.dishes),
     path('form', views.ApForm),
-    path('success', views.success, name="success")
+    path('success', views.success, name="success"),
+    path('about', views.about, name="aboutSection"),
 ] 

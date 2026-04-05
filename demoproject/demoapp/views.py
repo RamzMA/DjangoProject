@@ -10,6 +10,10 @@ def index(request):
 def success(request):
     return HttpResponse("Successful")
 
+def about(request):
+    content = {'about': "You can find out more on dishes by adding pasta,pizza or salad to the url instead of /about"}
+    return render(request, 'about.html', content)
+
 def dishes(request, dish):
     items = {
         'pasta': 'Pasta is a type of Italian food typically made from wheat flour and water, and sometimes eggs. It comes in various shapes and sizes, such as spaghetti, penne, and fusilli.',
