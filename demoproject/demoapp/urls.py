@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.index, name='index'), 
     path('dishes/<str:dish>', views.dishes),
     path('form', views.ApForm),
+    path('success', views.success, name="success")
 ] 

@@ -1,10 +1,14 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import AppForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
     return HttpResponse("This is the HomePage")
+
+def success(request):
+    return HttpResponse("Successful")
 
 def dishes(request, dish):
     items = {
@@ -23,6 +27,6 @@ def ApForm(request):
         form = AppForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("Successful")
+            return redirect("success")
     context = {'form': form}
     return render(request, 'form.html', context)
