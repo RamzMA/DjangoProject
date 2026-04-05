@@ -7,4 +7,5 @@ urlpatterns = [
     path('form', views.ApForm),
     path('success', views.success, name="success"),
     path('about', views.about, name="aboutSection"),
+    path('allDishes', views.alldishes, name="allDishes")
 ] 
